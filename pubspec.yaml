@@ -62,6 +62,17 @@ flutter:
   assets:
     - assets/cv/
     - assets/images/
+    - assets/screenshots/best_touch/
+    - assets/screenshots/brain_health/
+    - assets/screenshots/ezyxs/
+    - assets/screenshots/keme_meet/
+    - assets/screenshots/koshk/
+    - assets/screenshots/mrkabti/
+    - assets/screenshots/titanium_3d/
+    - assets/screenshots/trjrs/
+    - assets/screenshots/zado/
+    - assets/screenshots/zado_driver/
+    - assets/screenshots/zado_restaurant/
 
 
 

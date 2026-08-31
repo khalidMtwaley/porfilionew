@@ -54,6 +54,8 @@ class Project {
     required this.name,
     required this.description,
     required this.tags,
+    required this.slug,
+    this.shotCount = 0,
     this.links = const [],
     this.isFreelance = false,
   });
@@ -63,6 +65,18 @@ class Project {
   final List<String> tags;
   final List<StoreLink> links;
   final bool isFreelance;
+
+  /// Asset folder name under `assets/screenshots/`.
+  final String slug;
+
+  /// How many store screenshots were saved for this project. Files are named
+  /// `01.jpg` … so the paths are derived rather than listed one by one.
+  final int shotCount;
+
+  List<String> get screenshots => [
+        for (var i = 1; i <= shotCount; i++)
+          'assets/screenshots/$slug/${i.toString().padLeft(2, '0')}.jpg',
+      ];
 }
 
 class SkillGroup {
@@ -181,6 +195,8 @@ abstract final class PortfolioData {
   static const projects = <Project>[
     Project(
       name: 'Keme Meet',
+      slug: 'keme_meet',
+      shotCount: 6,
       description:
           'Brain Health USA\'s official communication and video conferencing app '
           'for staff and the Residency Program. Delivers secure, high-quality '
@@ -202,6 +218,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Best Touch',
+      slug: 'best_touch',
+      shotCount: 3,
       description:
           'A comprehensive automotive service platform that connects users with '
           'trusted car care professionals. Customers can book services such as '
@@ -221,6 +239,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Brain Health',
+      slug: 'brain_health',
+      shotCount: 6,
       description:
           'Personalized support for individuals looking to improve their '
           'cognitive well-being. Licensed professionals offer therapy, coaching, '
@@ -241,6 +261,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Zado',
+      slug: 'zado',
+      shotCount: 4,
       description:
           'A food delivery platform in Iraq that connects users with leading '
           'restaurants. Customers can browse menus, place orders, and track '
@@ -250,16 +272,18 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.rowad.willgo',
+          url: 'https://play.google.com/store/apps/details?id=com.zado.zadoapp',
         ),
         StoreLink(
           kind: StoreKind.appStore,
-          url: 'https://apps.apple.com/us/app/will-go/id6745335997',
+          url: 'https://apps.apple.com/us/app/zado/id6775782254',
         ),
       ],
     ),
     Project(
       name: 'Zado Driver',
+      slug: 'zado_driver',
+      shotCount: 4,
       description:
           'A dedicated delivery application that allows drivers to receive, '
           'accept, and manage delivery requests in real time. Provides order '
@@ -279,6 +303,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Zado Restaurant',
+      slug: 'zado_restaurant',
+      shotCount: 4,
       description:
           'A restaurant management application that enables owners to manage '
           'restaurants, orders, and products from one platform. Add, edit, or '
@@ -294,6 +320,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'EZYXS',
+      slug: 'ezyxs',
+      shotCount: 7,
       description:
           'A sports venue booking platform that enables users to discover and '
           'reserve football, basketball, and other sports facilities. Provides '
@@ -313,6 +341,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'TRJRS',
+      slug: 'trjrs',
+      shotCount: 5,
       description:
           'An e-commerce platform specializing in handcrafted products, '
           'particularly Pharaonic-inspired creations. Users browse products, add '
@@ -328,6 +358,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: '3D Titanium',
+      slug: 'titanium_3d',
+      shotCount: 6,
       description:
           'A mobile platform designed for dentists, patients, and dental '
           'material suppliers. Dentists create professional profiles, manage '
@@ -345,6 +377,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Mrkabti',
+      slug: 'mrkabti',
+      shotCount: 7,
       description:
           'A transport app for Palestine, allowing users to register with their '
           'driving license. Provides built-in insurance services, instant '
@@ -362,6 +396,8 @@ abstract final class PortfolioData {
     ),
     Project(
       name: 'Koshk',
+      slug: 'koshk',
+      shotCount: 3,
       description:
           'A smart electronics marketplace that enables users to browse and '
           'purchase devices such as smartphones, tablets, and televisions. '

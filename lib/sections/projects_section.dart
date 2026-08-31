@@ -6,6 +6,7 @@ import '../core/responsive.dart';
 import '../data/portfolio_data.dart';
 import '../widgets/app_buttons.dart';
 import '../widgets/fade_in_on_scroll.dart';
+import '../widgets/screenshot_slider.dart';
 import '../widgets/section_wrapper.dart';
 
 class ProjectsSection extends StatelessWidget {
@@ -117,6 +118,13 @@ class _ProjectCard extends StatelessWidget {
               height: 1.7,
             ),
           ),
+          if (project.screenshots.isNotEmpty) ...[
+            const SizedBox(height: 22),
+            ScreenshotSlider(
+              images: project.screenshots,
+              projectName: project.name,
+            ),
+          ],
           const SizedBox(height: 22),
           Wrap(
             spacing: 8,
