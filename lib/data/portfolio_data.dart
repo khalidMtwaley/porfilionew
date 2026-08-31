@@ -29,11 +29,24 @@ class Experience {
   final List<String> highlights;
 }
 
-class StoreLink {
-  const StoreLink({required this.label, required this.url});
+enum StoreKind { googlePlay, appStore }
 
-  final String label;
+class StoreLink {
+  const StoreLink({required this.kind, required this.url});
+
+  final StoreKind kind;
   final String url;
+
+  String get label => switch (kind) {
+        StoreKind.googlePlay => 'Google Play',
+        StoreKind.appStore => 'App Store',
+      };
+
+  /// True until a real store URL is filled in. Placeholder links point at a
+  /// store's home page rather than a specific app, so the button is hidden
+  /// instead of sending visitors somewhere wrong.
+  bool get isPlaceholder =>
+      url == 'https://play.google.com/store' || url == 'https://apps.apple.com';
 }
 
 class Project {
@@ -177,8 +190,14 @@ abstract final class PortfolioData {
           'active calls, and deep linking to join meetings from shared invites.',
       tags: ['LiveKit', 'Video Calls', 'Deep Linking', 'PiP', 'Background Services'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.brain.brainhealth.meet',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/us/app/keme-meet/id6742255880',
+        ),
       ],
     ),
     Project(
@@ -190,8 +209,14 @@ abstract final class PortfolioData {
           'location and service requests directly with providers.',
       tags: ['Google Maps', 'Booking', 'Location Services'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.visionco.best_touch',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/eg/app/%D8%A7%D9%81%D8%B6%D9%84-%D9%84%D9%85%D8%B3%D9%87/id6502757840',
+        ),
       ],
     ),
     Project(
@@ -204,8 +229,14 @@ abstract final class PortfolioData {
           'therapist or coach.',
       tags: ['Healthcare', 'Scheduling', 'Chat', 'Clean Architecture'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.newhealthy.app',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/eg/app/brain-health-usa/id1667963400',
+        ),
       ],
     ),
     Project(
@@ -217,8 +248,14 @@ abstract final class PortfolioData {
           'efficient order fulfillment.',
       tags: ['Real-time Tracking', 'Pusher', 'Payments', 'Google Maps'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.rowad.willgo',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/us/app/will-go/id6745335997',
+        ),
       ],
     ),
     Project(
@@ -230,8 +267,14 @@ abstract final class PortfolioData {
           'updates, and real-time location tracking.',
       tags: ['Live Navigation', 'Real-time', 'Background Location'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.zado.zadodriverapp',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/us/app/zado-driver/id6775603643',
+        ),
       ],
     ),
     Project(
@@ -243,7 +286,10 @@ abstract final class PortfolioData {
           'the full order lifecycle.',
       tags: ['Dashboard', 'Order Management', 'Cubit'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.zado.zadoresturant',
+        ),
       ],
     ),
     Project(
@@ -255,8 +301,14 @@ abstract final class PortfolioData {
           'booking experience from venue discovery to confirmation.',
       tags: ['Booking', 'Payment Gateway', 'Real-time Slots'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.abavantage.ezyxs',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/us/app/ezyxs-easy-access/id6759061233',
+        ),
       ],
     ),
     Project(
@@ -268,7 +320,10 @@ abstract final class PortfolioData {
           'accounts, showcase products, manage stores, and handle orders.',
       tags: ['E-commerce', 'Multi-vendor', 'Payments'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.abavantage.trjrs',
+        ),
       ],
     ),
     Project(
@@ -282,7 +337,10 @@ abstract final class PortfolioData {
       tags: ['Multi-role', 'Marketplace', 'Appointments'],
       isFreelance: true,
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.titanuim.titanuimdental',
+        ),
       ],
     ),
     Project(
@@ -296,7 +354,10 @@ abstract final class PortfolioData {
       tags: ['Transport', 'Insurance', 'Chat', 'Marketplace'],
       isFreelance: true,
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.app.mrkbati.mobile',
+        ),
       ],
     ),
     Project(
@@ -308,8 +369,14 @@ abstract final class PortfolioData {
           'communicate directly by phone for inquiries and purchasing.',
       tags: ['Marketplace', 'Geolocation', 'E-commerce'],
       links: [
-        StoreLink(label: 'Google Play', url: 'https://play.google.com/store'),
-        StoreLink(label: 'App Store', url: 'https://apps.apple.com'),
+        StoreLink(
+          kind: StoreKind.googlePlay,
+          url: 'https://play.google.com/store/apps/details?id=com.visionco.koshk',
+        ),
+        StoreLink(
+          kind: StoreKind.appStore,
+          url: 'https://apps.apple.com/us/app/koshk-aljawal/id6739207745',
+        ),
       ],
     ),
   ];

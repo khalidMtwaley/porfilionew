@@ -33,8 +33,7 @@ void main() {
     }
   });
 
-  testWidgets('lists every company and the first page of projects',
-      (tester) async {
+  testWidgets('lists every company and every project', (tester) async {
     await pumpPortfolio(tester);
 
     for (final experience in PortfolioData.experiences) {
@@ -45,12 +44,20 @@ void main() {
       );
     }
 
-    for (final project in PortfolioData.projects.take(6)) {
+    // All projects render at once — no expand/collapse gate.
+    for (final project in PortfolioData.projects) {
       expect(
         find.text(project.name),
         findsWidgets,
         reason: 'missing project ${project.name}',
       );
     }
+  });
+
+  testWidgets('has no show-more gate hiding projects', (tester) async {
+    await pumpPortfolio(tester);
+
+    expect(find.textContaining('Show More'), findsNothing);
+    expect(find.textContaining('Show Less'), findsNothing);
   });
 }
