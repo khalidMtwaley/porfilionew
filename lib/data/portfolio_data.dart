@@ -95,6 +95,11 @@ abstract final class PortfolioData {
   static const cvAsset = 'assets/cv/khalid_mohamed_cv.pdf';
   static const cvFileName = 'Khalid_Mohamed_Flutter_Developer_CV.pdf';
 
+  /// Hosted copy of the CV, used on non-web builds where the bundled asset has
+  /// no URL the OS can open.
+  static const cvUrl =
+      'https://drive.google.com/file/d/126t02GDKNHSLYXI65UB6fkZbbtKPseqW/view';
+
   static const tagline =
       'I build high-quality mobile apps with Flutter & Dart.';
 

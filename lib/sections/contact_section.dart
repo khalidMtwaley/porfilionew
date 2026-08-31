@@ -6,6 +6,7 @@ import '../core/responsive.dart';
 import '../data/portfolio_data.dart';
 import '../widgets/app_buttons.dart';
 import '../widgets/fade_in_on_scroll.dart';
+import '../widgets/social_pill.dart';
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key, this.sectionKey});
@@ -65,81 +66,9 @@ class ContactSection extends StatelessWidget {
                       LinkLauncher.open('mailto:${PortfolioData.email}'),
                 ),
                 const SizedBox(height: 56),
-                Wrap(
-                  spacing: 14,
-                  runSpacing: 14,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    for (final social in PortfolioData.socials)
-                      _SocialPill(social: social),
-                  ],
-                ),
+                const ContactBar(alignment: WrapAlignment.center),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _SocialPill extends StatefulWidget {
-  const _SocialPill({required this.social});
-
-  final SocialLink social;
-
-  @override
-  State<_SocialPill> createState() => _SocialPillState();
-}
-
-class _SocialPillState extends State<_SocialPill> {
-  bool _hovered = false;
-
-  IconData get _icon => switch (widget.social.label) {
-        'GitHub' => Icons.code_rounded,
-        'LinkedIn' => Icons.business_center_outlined,
-        'Email' => Icons.alternate_email_rounded,
-        _ => Icons.phone_outlined,
-      };
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      child: GestureDetector(
-        onTap: () => LinkLauncher.open(widget.social.url),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          transform: Matrix4.translationValues(0, _hovered ? -3 : 0, 0),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-          decoration: BoxDecoration(
-            color: _hovered ? AppColors.surfaceElevated : AppColors.surface,
-            border: Border.all(
-              color: _hovered ? AppColors.accent : AppColors.border,
-            ),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                _icon,
-                size: 17,
-                color: _hovered ? AppColors.accent : AppColors.textMuted,
-              ),
-              const SizedBox(width: 10),
-              Text(
-                widget.social.handle,
-                style: TextStyle(
-                  fontSize: 13.5,
-                  color: _hovered
-                      ? AppColors.textPrimary
-                      : AppColors.textSecondary,
-                ),
-              ),
-            ],
           ),
         ),
       ),

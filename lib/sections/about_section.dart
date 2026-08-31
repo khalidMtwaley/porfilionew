@@ -139,7 +139,7 @@ class _EducationCard extends StatelessWidget {
           const SizedBox(height: 12),
           const _InfoRow(
             icon: Icons.work_outline_rounded,
-            text: 'Open to remote opportunities',
+            text: 'Open to remote , onsite opportunities and freelance work',
           ),
         ],
       ),

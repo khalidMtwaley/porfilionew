@@ -22,7 +22,7 @@ class ProjectsSection extends StatelessWidget {
 
     return SectionWrapper(
       sectionKey: sectionKey,
-      number: '04.',
+      number: '03.',
       title: 'Things I\'ve Built',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

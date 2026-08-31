@@ -22,7 +22,7 @@ class _ExperienceSectionState extends State<ExperienceSection> {
   Widget build(BuildContext context) {
     return SectionWrapper(
       sectionKey: widget.sectionKey,
-      number: '03.',
+      number: '02.',
       title: 'Where I\'ve Worked',
       child: FadeInOnScroll(
         child: context.isMobile ? _buildStacked() : _buildTabbed(),

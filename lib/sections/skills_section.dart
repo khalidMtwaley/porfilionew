@@ -19,7 +19,7 @@ class SkillsSection extends StatelessWidget {
 
     return SectionWrapper(
       sectionKey: sectionKey,
-      number: '02.',
+      number: '04.',
       title: 'Skills & Tools',
       child: LayoutBuilder(
         builder: (context, constraints) {

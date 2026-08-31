@@ -6,6 +6,7 @@ import '../core/responsive.dart';
 import '../data/portfolio_data.dart';
 import '../widgets/app_buttons.dart';
 import '../widgets/fade_in_on_scroll.dart';
+import '../widgets/social_pill.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({super.key, required this.onContactPressed});
@@ -116,9 +117,14 @@ class HeroSection extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: context.isMobile ? 56 : 80),
+              const SizedBox(height: 36),
               FadeInOnScroll(
                 delay: const Duration(milliseconds: 500),
+                child: const ContactBar(compact: true),
+              ),
+              SizedBox(height: context.isMobile ? 56 : 80),
+              FadeInOnScroll(
+                delay: const Duration(milliseconds: 600),
                 child: const _StatsRow(),
               ),
             ],

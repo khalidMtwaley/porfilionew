@@ -62,16 +62,20 @@ class _HomePageState extends State<HomePage> {
 
   List<NavItem> get _navItems => [
         NavItem(number: '01.', label: 'About', onTap: () => _scrollTo(_aboutKey)),
-        NavItem(number: '02.', label: 'Skills', onTap: () => _scrollTo(_skillsKey)),
         NavItem(
-          number: '03.',
+          number: '02.',
           label: 'Experience',
           onTap: () => _scrollTo(_experienceKey),
         ),
         NavItem(
-          number: '04.',
+          number: '03.',
           label: 'Projects',
           onTap: () => _scrollTo(_projectsKey),
+        ),
+        NavItem(
+          number: '04.',
+          label: 'Skills',
+          onTap: () => _scrollTo(_skillsKey),
         ),
         NavItem(
           number: '05.',
@@ -99,9 +103,9 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: context.isMobile ? 78 : 90),
                     HeroSection(onContactPressed: () => _scrollTo(_contactKey)),
                     AboutSection(sectionKey: _aboutKey),
-                    SkillsSection(sectionKey: _skillsKey),
                     ExperienceSection(sectionKey: _experienceKey),
                     ProjectsSection(sectionKey: _projectsKey),
+                    SkillsSection(sectionKey: _skillsKey),
                     ContactSection(sectionKey: _contactKey),
                     const SiteFooter(),
                   ],
