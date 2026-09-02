@@ -92,6 +92,10 @@ abstract final class PortfolioData {
   static const location = 'Mansoura, Egypt';
   static const email = 'khalidmetwaley@gmail.com';
   static const phone = '+201023291641';
+
+  /// Same number as [phone], digits only — wa.me rejects '+' and separators.
+  /// Kept in sync with [phone] by a test.
+  static const whatsappNumber = '201023291641';
   static const cvAsset = 'assets/cv/khalid_mohamed_cv.pdf';
   static const cvFileName = 'Khalid_Mohamed_Flutter_Developer_CV.pdf';
 
@@ -136,6 +140,11 @@ abstract final class PortfolioData {
       label: 'Phone',
       url: 'tel:$phone',
       handle: phone,
+    ),
+    SocialLink(
+      label: 'WhatsApp',
+      url: 'https://wa.me/$whatsappNumber',
+      handle: 'WhatsApp',
     ),
   ];
 

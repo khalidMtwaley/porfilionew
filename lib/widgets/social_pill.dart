@@ -25,6 +25,7 @@ class _SocialPillState extends State<SocialPill> {
         'GitHub' => Icons.code_rounded,
         'LinkedIn' => Icons.business_center_outlined,
         'Email' => Icons.alternate_email_rounded,
+        'WhatsApp' => Icons.chat_bubble_outline_rounded,
         _ => Icons.phone_outlined,
       };
 
