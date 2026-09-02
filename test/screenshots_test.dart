@@ -42,6 +42,30 @@ void main() {
       }
     });
 
+    test('the CV asset exists and is a real PDF', () {
+      final cv = File(PortfolioData.cvAsset);
+
+      expect(cv.existsSync(), isTrue, reason: '${PortfolioData.cvAsset} missing');
+      expect(
+        cv.readAsBytesSync().take(5),
+        [0x25, 0x50, 0x44, 0x46, 0x2D], // "%PDF-"
+        reason: 'CV asset is not a PDF',
+      );
+    });
+
+    test('the CV path needs no URL encoding', () {
+      // Spaces and other unsafe characters break the web download link.
+      expect(
+        PortfolioData.cvAsset,
+        matches(RegExp(r'^[A-Za-z0-9_\-./]+$')),
+        reason: 'CV path has characters that must be URL-encoded',
+      );
+    });
+
+    test('the CV folder is registered in pubspec', () {
+      expect(File('pubspec.yaml').readAsStringSync(), contains('assets/cv/'));
+    });
+
     test('each screenshot folder is registered in pubspec', () {
       final pubspec = File('pubspec.yaml').readAsStringSync();
       for (final project in PortfolioData.projects) {
