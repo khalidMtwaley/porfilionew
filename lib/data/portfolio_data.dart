@@ -38,9 +38,9 @@ class StoreLink {
   final String url;
 
   String get label => switch (kind) {
-        StoreKind.googlePlay => 'Google Play',
-        StoreKind.appStore => 'App Store',
-      };
+    StoreKind.googlePlay => 'Google Play',
+    StoreKind.appStore => 'App Store',
+  };
 
   /// True until a real store URL is filled in. Placeholder links point at a
   /// store's home page rather than a specific app, so the button is hidden
@@ -74,9 +74,9 @@ class Project {
   final int shotCount;
 
   List<String> get screenshots => [
-        for (var i = 1; i <= shotCount; i++)
-          'assets/screenshots/$slug/${i.toString().padLeft(2, '0')}.jpg',
-      ];
+    for (var i = 1; i <= shotCount; i++)
+      'assets/screenshots/$slug/${i.toString().padLeft(2, '0')}.jpg',
+  ];
 }
 
 class SkillGroup {
@@ -131,16 +131,8 @@ abstract final class PortfolioData {
       url: 'https://linkedin.com/in/khalid-metwaley',
       handle: 'linkedin.com/in/khalid-metwaley',
     ),
-    SocialLink(
-      label: 'Email',
-      url: 'mailto:$email',
-      handle: email,
-    ),
-    SocialLink(
-      label: 'Phone',
-      url: 'tel:$phone',
-      handle: phone,
-    ),
+    SocialLink(label: 'Email', url: 'mailto:$email', handle: email),
+    SocialLink(label: 'Phone', url: 'tel:$phone', handle: phone),
     SocialLink(
       label: 'WhatsApp',
       url: 'https://wa.me/$whatsappNumber',
@@ -218,11 +210,18 @@ abstract final class PortfolioData {
           'links. Supports background services on Android and iOS to maintain '
           'meeting continuity, Picture-in-Picture mode for multitasking during '
           'active calls, and deep linking to join meetings from shared invites.',
-      tags: ['LiveKit', 'Video Calls', 'Deep Linking', 'PiP', 'Background Services'],
+      tags: [
+        'LiveKit',
+        'Video Calls',
+        'Deep Linking',
+        'PiP',
+        'Background Services',
+      ],
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.brain.brainhealth.meet',
+          url:
+              'https://play.google.com/store/apps/details?id=com.brain.brainhealth.meet',
         ),
         StoreLink(
           kind: StoreKind.appStore,
@@ -243,11 +242,13 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.visionco.best_touch',
+          url:
+              'https://play.google.com/store/apps/details?id=com.visionco.best_touch',
         ),
         StoreLink(
           kind: StoreKind.appStore,
-          url: 'https://apps.apple.com/eg/app/%D8%A7%D9%81%D8%B6%D9%84-%D9%84%D9%85%D8%B3%D9%87/id6502757840',
+          url:
+              'https://apps.apple.com/eg/app/%D8%A7%D9%81%D8%B6%D9%84-%D9%84%D9%85%D8%B3%D9%87/id6502757840',
         ),
       ],
     ),
@@ -265,7 +266,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.newhealthy.app',
+          url:
+              'https://play.google.com/store/apps/details?id=com.newhealthy.app',
         ),
         StoreLink(
           kind: StoreKind.appStore,
@@ -307,7 +309,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.zado.zadodriverapp',
+          url:
+              'https://play.google.com/store/apps/details?id=com.zado.zadodriverapp',
         ),
         StoreLink(
           kind: StoreKind.appStore,
@@ -328,7 +331,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.zado.zadoresturant',
+          url:
+              'https://play.google.com/store/apps/details?id=com.zado.zadoresturant',
         ),
       ],
     ),
@@ -345,7 +349,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.abavantage.ezyxs',
+          url:
+              'https://play.google.com/store/apps/details?id=com.abavantage.ezyxs',
         ),
         StoreLink(
           kind: StoreKind.appStore,
@@ -366,7 +371,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.abavantage.trjrs',
+          url:
+              'https://play.google.com/store/apps/details?id=com.abavantage.trjrs',
         ),
       ],
     ),
@@ -385,7 +391,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.titanuim.titanuimdental',
+          url:
+              'https://play.google.com/store/apps/details?id=com.titanuim.titanuimdental',
         ),
       ],
     ),
@@ -404,7 +411,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.app.mrkbati.mobile',
+          url:
+              'https://play.google.com/store/apps/details?id=com.app.mrkbati.mobile',
         ),
       ],
     ),
@@ -421,7 +429,8 @@ abstract final class PortfolioData {
       links: [
         StoreLink(
           kind: StoreKind.googlePlay,
-          url: 'https://play.google.com/store/apps/details?id=com.visionco.koshk',
+          url:
+              'https://play.google.com/store/apps/details?id=com.visionco.koshk',
         ),
         StoreLink(
           kind: StoreKind.appStore,
@@ -446,13 +455,7 @@ abstract final class PortfolioData {
     ),
     SkillGroup(
       title: 'Real-time & Networking',
-      skills: [
-        'WebSockets',
-        'Pusher Channels',
-        'Socket.IO',
-        'Dio',
-        'HTTP',
-      ],
+      skills: ['WebSockets', 'Pusher Channels', 'Socket.IO', 'Dio', 'HTTP'],
     ),
     SkillGroup(
       title: 'Integrations',
@@ -466,13 +469,7 @@ abstract final class PortfolioData {
     ),
     SkillGroup(
       title: 'Storage & Tooling',
-      skills: [
-        'SharedPreferences',
-        'Hive',
-        'CI/CD',
-        'GitHub',
-        'GitLab',
-      ],
+      skills: ['SharedPreferences', 'Hive', 'CI/CD', 'GitHub', 'GitLab'],
     ),
   ];
 }
